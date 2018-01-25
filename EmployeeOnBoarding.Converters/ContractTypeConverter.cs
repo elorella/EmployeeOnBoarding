@@ -3,7 +3,7 @@ using EmployeeOnBoarding.Domain;
 
 namespace EmployeeOnBoarding.Converters
 {
-    public class ContractTypeConverter
+    public class ContractTypeConverter : IContractTypeConverter
     {
         public ContractType ToDomainObject(string contractType)
         {

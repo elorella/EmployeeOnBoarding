@@ -6,8 +6,12 @@ namespace EmployeeOnBoardingApi.Controllers
 {
     public class EmployeeController : ApiController
     {
-        private readonly EmployeeService _employeeService = new EmployeeService();
+        private readonly EmployeeService _employeeService;
 
+        public EmployeeController(EmployeeService employeeService)
+        {
+            _employeeService = employeeService;
+        }
         // GET: api/Employee
         //public IEnumerable<string> Get()
         //{

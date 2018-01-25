@@ -4,25 +4,26 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 
-namespace EmployeeOnBoarding.Repositories
+namespace EmployeeOnBoarding.Perisistance
 {
-    public class BaseRepository<TEntity> where TEntity :  IEntity
+    public class BaseRepository<TEntity> where TEntity : IEntity
     {
+        private readonly string _collectionName;
         private readonly IMongoDatabase _database;
-        private readonly string _collectionName = (typeof(TEntity).ToString());
 
-        public BaseRepository()
+        public BaseRepository(MongoCredentials mongoCredentials)
         {
             var pack = new ConventionPack
             {
                 new EnumRepresentationConvention(BsonType.String)
             };
 
+            var collections = typeof(TEntity).ToString().Split('.');
+            _collectionName = collections[collections.Length - 1];
             ConventionRegistry.Register("EnumStringConvention", pack, t => true);
-            _database = MongoTools.GetMongoDatabase(new MongoCredentials("EmployeeOnboarding", "mongouser", "mongo123", "localhost"));
+            _database = MongoTools.GetMongoDatabase(mongoCredentials);
         }
 
-       
         public virtual TEntity GetById(int id)
         {
             var mongoDtoCollection = _database.GetCollection<TEntity>(_collectionName);
@@ -44,22 +45,15 @@ namespace EmployeeOnBoarding.Repositories
             _database.GetCollection<TEntity>(_collectionName)
                 .InsertOne(entity);
         }
-
-        public virtual void Upsert(TEntity entity)
+        
+        public virtual void Delete(int id)
         {
-           
+
         }
 
-
-        public virtual void Delete(object id)
-        {
-           
-        }
-    
         public virtual void Update(TEntity entityToUpdate)
         {
-           
-        }
 
+        }
     }
 }

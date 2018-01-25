@@ -1,20 +1,34 @@
-﻿using EmployeeOnBoarding.DataTransferObjects;
+﻿using EmployeeOnBoarding.Converters;
+using EmployeeOnBoarding.DataTransferObjects;
+using EmployeeOnBoarding.Perisistance;
 using EmployeeOnBoarding.Service;
+using EmployeeOnBoarding.Validator;
 using NUnit.Framework;
 
 namespace EmployeeOnBoardingApi.Tests
 {
     public class EmployeeServiceTests
     {
+        private static readonly MongoCredentials MongoCredentialForTest =
+            new MongoCredentials("EmployeeOnboarding", "mongouser", "mongo123", "localhost");
+
+        private readonly Validator _validator = new Validator();
+        private readonly EmployeeRepository _employeeRepository = new EmployeeRepository(MongoCredentialForTest);
+        private readonly EmployeeConverter _employeeConverter = new EmployeeConverter(new ContractTypeConverter());
+        
         [Test]
         [Explicit]
         public void AddEmployee()
         {
-            var employeeService = new EmployeeService();
+            var employeeService = new EmployeeService(
+                _validator,
+                _employeeRepository, 
+                _employeeConverter
+                );
 
             employeeService.AddEmployee(new EmployeeDto
             {
-                Id = 0,
+                Id = 100,
                 Name = "Elif",
                 Surname = "Olgun",
                 ContractType = "FLTM",
@@ -27,11 +41,14 @@ namespace EmployeeOnBoardingApi.Tests
         [Explicit]
         public void GetEmployee()
         {
-            var employeeService = new EmployeeService();
+            var employeeService =
+                new EmployeeService(_validator,
+                    _employeeRepository,
+                    _employeeConverter);
 
-            var expected = employeeService.GetEmployee(0);
+            var expected = employeeService.GetEmployee(100);
 
-            Assert.AreEqual(expected.Id, 0);
+            Assert.AreEqual(expected.Id, 100);
             Assert.AreEqual(expected.BirthDay, "1980-01-01");
             Assert.AreEqual(expected.ContractType, "FLTM");
             Assert.AreEqual(expected.Name, "Elif");

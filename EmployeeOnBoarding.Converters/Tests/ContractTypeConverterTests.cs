@@ -1,9 +1,8 @@
 ﻿using System;
-using EmployeeOnBoarding.Converters;
 using EmployeeOnBoarding.Domain;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoarding.Converters.Tests
 {
     public class ContractTypeConverterTests
     {

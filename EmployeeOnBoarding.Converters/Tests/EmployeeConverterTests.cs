@@ -1,16 +1,21 @@
 ﻿using System;
-using EmployeeOnBoarding.Domain;
-using EmployeeOnBoarding.Converters;
 using EmployeeOnBoarding.DataTransferObjects;
+using EmployeeOnBoarding.Domain;
 using EmployeeOnBoarding.Domain.Employee;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoarding.Converters.Tests
 {
     [TestFixture]
     public class EmployeeConverterTests
     {
-        private readonly EmployeeConverter _employeeConverter = new EmployeeConverter();
+        private readonly EmployeeConverter _employeeConverter;
+        
+        public EmployeeConverterTests()
+        {
+            var contractConverter = new ContractTypeConverter();
+            _employeeConverter = new EmployeeConverter(contractConverter);
+        }
 
         [Test]
         public void ConvertEmployee()

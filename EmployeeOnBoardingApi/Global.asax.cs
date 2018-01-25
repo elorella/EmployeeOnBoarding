@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Routing;
+﻿using System.Web.Http;
+using Castle.MicroKernel.Resolvers.SpecializedResolvers;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
+using EmployeeOnBoardingApi.Container;
+
 
 namespace EmployeeOnBoardingApi
 {
@@ -11,7 +11,16 @@ namespace EmployeeOnBoardingApi
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            var container = new WindsorContainer();
+            container.Install(FromAssembly.This());
+            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
+            var dependencyResolver = new WindsorDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
+
+            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, container));
+
         }
+
+
     }
 }

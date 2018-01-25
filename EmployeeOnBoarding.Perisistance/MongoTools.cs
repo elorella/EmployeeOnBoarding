@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace EmployeeOnBoarding.Repositories
+namespace EmployeeOnBoarding.Perisistance
 {
     public class MongoTools
     {

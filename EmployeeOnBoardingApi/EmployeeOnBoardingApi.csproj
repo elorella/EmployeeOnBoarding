@@ -44,11 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -82,14 +89,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ExceptionHandler.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Container\ApiControllersInstaller.cs" />
+    <Compile Include="Container\Installer.cs" />
+    <Compile Include="Container\WindsorCompositionRoot.cs" />
+    <Compile Include="Container\WindsorDependencyResolver.cs" />
+    <Compile Include="Container\WindsorDependencyScope.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\ErrorInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,13 +121,25 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EmployeeOnBoarding.Converters\EmployeeOnBoarding.Converters.csproj">
+      <Project>{73E6166B-6135-41C6-8CBF-1590C5D37671}</Project>
+      <Name>EmployeeOnBoarding.Converters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmployeeOnBoarding.DataTransferObjects\EmployeeOnBoarding.DataTransferObjects.csproj">
       <Project>{97A4F68D-49BE-4A83-9FBB-21804134D845}</Project>
       <Name>EmployeeOnBoarding.DataTransferObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Perisistance\EmployeeOnBoarding.Perisistance.csproj">
+      <Project>{05657711-3e19-415c-9bdd-87beb398d413}</Project>
+      <Name>EmployeeOnBoarding.Perisistance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmployeeOnboarding.Service\EmployeeOnBoarding.Service.csproj">
       <Project>{CA84BA45-E5B9-443B-832E-A0CA469D31E0}</Project>
       <Name>EmployeeOnBoarding.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Validator\EmployeeOnBoarding.Validator.csproj">
+      <Project>{cfd0e2c6-d4a0-4e60-9f01-4f77853f4acd}</Project>
+      <Name>EmployeeOnBoarding.Validator</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

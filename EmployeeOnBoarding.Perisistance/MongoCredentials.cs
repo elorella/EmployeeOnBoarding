@@ -1,4 +1,4 @@
-﻿namespace EmployeeOnBoarding.Repositories
+﻿namespace EmployeeOnBoarding.Perisistance
 {
     public class MongoCredentials
     {

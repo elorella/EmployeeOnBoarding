@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.3.4\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
@@ -43,6 +46,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -52,10 +59,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContractTypeConverterTests.cs" />
     <Compile Include="EmployeeRepositoryTests.cs" />
     <Compile Include="EmployeeServiceTests.cs" />
-    <Compile Include="EmployeeConverterTests.cs" />
+    <Compile Include="ExceptionMessagBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,20 +77,25 @@
       <Project>{36B06DE2-3B92-4CF8-993A-D628DA80874F}</Project>
       <Name>EmployeeOnBoarding.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Perisistance\EmployeeOnBoarding.Perisistance.csproj">
+      <Project>{05657711-3e19-415c-9bdd-87beb398d413}</Project>
+      <Name>EmployeeOnBoarding.Perisistance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmployeeOnboarding.Service\EmployeeOnBoarding.Service.csproj">
       <Project>{CA84BA45-E5B9-443B-832E-A0CA469D31E0}</Project>
       <Name>EmployeeOnBoarding.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Validator\EmployeeOnBoarding.Validator.csproj">
+      <Project>{cfd0e2c6-d4a0-4e60-9f01-4f77853f4acd}</Project>
+      <Name>EmployeeOnBoarding.Validator</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmployeeOnBoardingApi\EmployeeOnBoardingApi.csproj">
       <Project>{FDEA9D50-BCF2-44D6-80AD-2E5296E3FC52}</Project>
       <Name>EmployeeOnBoardingApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EmployeeOnBoarding.Repositories\EmployeeOnBoarding.Repositories.csproj">
-      <Project>{05657711-3E19-415C-9BDD-87BEB398D413}</Project>
-      <Name>EmployeeOnBoarding.Repositories</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

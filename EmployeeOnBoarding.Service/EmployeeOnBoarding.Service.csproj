@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.3.4\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="ExceptionMessagBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +60,18 @@
       <Project>{36b06de2-3b92-4cf8-993a-d628da80874f}</Project>
       <Name>EmployeeOnBoarding.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EmployeeOnBoarding.Repositories\EmployeeOnBoarding.Repositories.csproj">
-      <Project>{05657711-3E19-415C-9BDD-87BEB398D413}</Project>
-      <Name>EmployeeOnBoarding.Repositories</Name>
+    <ProjectReference Include="..\EmployeeOnBoarding.Perisistance\EmployeeOnBoarding.Perisistance.csproj">
+      <Project>{05657711-3e19-415c-9bdd-87beb398d413}</Project>
+      <Name>EmployeeOnBoarding.Perisistance</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Validator\EmployeeOnBoarding.Validator.csproj">
+      <Project>{cfd0e2c6-d4a0-4e60-9f01-4f77853f4acd}</Project>
+      <Name>EmployeeOnBoarding.Validator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

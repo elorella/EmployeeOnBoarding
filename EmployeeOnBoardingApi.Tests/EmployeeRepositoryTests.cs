@@ -1,14 +1,17 @@
 ﻿using System;
 using EmployeeOnBoarding.Domain;
 using EmployeeOnBoarding.Domain.Employee;
-using EmployeeOnBoarding.Repositories;
+using EmployeeOnBoarding.Perisistance;
 using NUnit.Framework;
 
 namespace EmployeeOnBoardingApi.Tests
 {
     public class EmployeeRepositoryTests
     {
-        private readonly EmployeeRepository _employeeRepository = new EmployeeRepository();
+        private static readonly MongoCredentials MongoCredentialForTest =
+            new MongoCredentials("EmployeeOnboarding", "mongouser", "mongo123", "localhost");
+
+        private readonly EmployeeRepository _employeeRepository = new EmployeeRepository(MongoCredentialForTest);
 
         [Test]
         [Explicit]

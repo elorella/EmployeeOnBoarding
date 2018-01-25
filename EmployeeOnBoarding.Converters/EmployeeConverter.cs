@@ -5,9 +5,14 @@ using EmployeeOnBoarding.Domain.Employee;
 
 namespace EmployeeOnBoarding.Converters
 {
-    public class EmployeeConverter
+    public class EmployeeConverter : IEmployeeConverter
     {
-        private readonly ContractTypeConverter _contractTypeConverter = new ContractTypeConverter();
+        private readonly IContractTypeConverter _contractTypeConverter;
+
+        public EmployeeConverter(IContractTypeConverter contractTypeConverter)
+        {
+            _contractTypeConverter = contractTypeConverter;
+        }
 
         public Employee ToDomainObject(EmployeeDto employeeDto)
         {
