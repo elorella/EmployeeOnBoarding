@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,9 +43,7 @@
     <Compile Include="ContractTypeConverter.cs" />
     <Compile Include="IContractTypeConverter.cs" />
     <Compile Include="IEmployeeConverter.cs" />
-    <Compile Include="Tests\ContractTypeConverterTests.cs" />
     <Compile Include="EmployeeConverter.cs" />
-    <Compile Include="Tests\EmployeeConverterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +55,6 @@
       <Project>{36B06DE2-3B92-4CF8-993A-D628DA80874F}</Project>
       <Name>EmployeeOnBoarding.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

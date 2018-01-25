@@ -1,4 +1,4 @@
-﻿namespace EmployeeOnBoarding.Domain.Assignment
+﻿namespace EmployeeOnBoarding.Domain
 {
     public class Assignment : IEntity
     {

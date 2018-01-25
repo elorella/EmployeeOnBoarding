@@ -1,12 +1,14 @@
 ﻿using System;
+using EmployeeOnBoarding.Converters;
 using EmployeeOnBoarding.Domain;
 using NUnit.Framework;
 
-namespace EmployeeOnBoarding.Converters.Tests
+namespace EmployeeOnBoardingApi.Tests.ConverterTests
 {
     public class ContractTypeConverterTests
     {
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractTypeDto_FullTime()
         {
             var expected = "FLTM";
@@ -17,6 +19,7 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractTypeDto_PartTime()
         {
             var expected = "PRTM";
@@ -27,12 +30,14 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractTypeDto_Unknown()
         {
             Assert.Throws<Exception>(() => new ContractTypeConverter().ToDataTransferObject(ContractType.Unknown));
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractType_FullTime()
         {
             var expected = ContractType.FullTime;
@@ -43,6 +48,7 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractType_PartTime()
         {
             var expected = ContractType.PartTime;
@@ -53,6 +59,7 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertContractType_Unknown()
         {
             var expected = ContractType.Unknown;

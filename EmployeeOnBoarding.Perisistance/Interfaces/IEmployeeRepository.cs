@@ -1,4 +1,4 @@
-﻿using EmployeeOnBoarding.Domain.Employee;
+﻿using EmployeeOnBoarding.Domain;
 
 namespace EmployeeOnBoarding.Perisistance.Interfaces
 {

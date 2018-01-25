@@ -4,11 +4,13 @@ using EmployeeOnBoarding.Service;
 using FluentValidation.Results;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoardingApi.Tests.ServiceTests
 {
+
     class ExceptionMessagBuilderTest
     {
         [Test]
+        [Category("ServiceTests")]
         public void BuildExceptionMessage()
         {
             var expected = $"Invalid Name{Environment.NewLine}Invalid Surname";
@@ -23,6 +25,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ServiceTests")]
         public void BuildEmptyExceptionMessage()
         {
             var expected = string.Empty;

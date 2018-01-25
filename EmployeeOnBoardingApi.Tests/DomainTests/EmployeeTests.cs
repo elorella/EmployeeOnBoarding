@@ -1,7 +1,8 @@
 ﻿using System;
+using EmployeeOnBoarding.Domain;
 using NUnit.Framework;
 
-namespace EmployeeOnBoarding.Domain.Employee
+namespace EmployeeOnBoardingApi.Tests.DomainTest
 {
     [TestFixture]
     public class EmployeeTests
@@ -21,32 +22,42 @@ namespace EmployeeOnBoarding.Domain.Employee
         }
 
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetId()
         {
             Assert.That(_employee.Id, Is.EqualTo(Id));
         }
 
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetName()
         {
             Assert.That(_employee.Name, Is.EqualTo(Name));
         }
+
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetSurname()
         {
             Assert.That(_employee.Surname, Is.EqualTo(Surname));
         }
+
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetContractType()
         {
             Assert.That(_employee.ContractType, Is.EqualTo(Type));
         }
+
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetStartDate()
         {
             Assert.That(_employee.StartDate, Is.EqualTo(StartDate));
         }
+
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetBirthDay()
         {
             Assert.That(_employee.BirthDay, Is.EqualTo(BirthDay));

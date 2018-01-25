@@ -5,7 +5,7 @@ using EmployeeOnBoarding.Service;
 using EmployeeOnBoarding.Validator;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoardingApi.Tests.ServiceTests
 {
     public class EmployeeServiceTests
     {
@@ -18,6 +18,7 @@ namespace EmployeeOnBoardingApi.Tests
         
         [Test]
         [Explicit]
+        [Category("Explicit")]
         public void AddEmployee()
         {
             var employeeService = new EmployeeService(
@@ -39,6 +40,7 @@ namespace EmployeeOnBoardingApi.Tests
 
         [Test]
         [Explicit]
+        [Category("Explicit")]
         public void GetEmployee()
         {
             var employeeService =

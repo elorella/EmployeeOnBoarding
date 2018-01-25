@@ -1,10 +1,10 @@
 ﻿using System;
+using EmployeeOnBoarding.Converters;
 using EmployeeOnBoarding.DataTransferObjects;
 using EmployeeOnBoarding.Domain;
-using EmployeeOnBoarding.Domain.Employee;
 using NUnit.Framework;
 
-namespace EmployeeOnBoarding.Converters.Tests
+namespace EmployeeOnBoardingApi.Tests.ConverterTests
 {
     [TestFixture]
     public class EmployeeConverterTests
@@ -18,6 +18,7 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertEmployee()
         {
             var expected = new Employee
@@ -51,6 +52,7 @@ namespace EmployeeOnBoarding.Converters.Tests
         }
 
         [Test]
+        [Category("ConverterTests")]
         public void ConvertEmployeeDto()
         {
             var expected = new EmployeeDto

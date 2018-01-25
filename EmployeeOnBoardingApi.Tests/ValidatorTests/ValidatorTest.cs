@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using EmployeeOnBoarding.DataTransferObjects;
-using EmployeeOnBoarding.Service;
+﻿using EmployeeOnBoarding.DataTransferObjects;
 using EmployeeOnBoarding.Validator.Validators;
-using FluentValidation.Results;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoardingApi.Tests.ValidatorTests
 {
     class AddEmployeeValidatorTest
     {
         [Test]
+        [Category("ValidatorTests")]
         public void AddEmployeeValid()
         {
             var employee = new EmployeeDto()
@@ -30,6 +27,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void NameIsEmptyErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -49,6 +47,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void IdIsZeroErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -68,6 +67,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void SurNameIsEmptyErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -88,6 +88,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void ContractTypeIsShoterThen4ErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -108,6 +109,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void ContractTypeIsLongerThen4ErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -128,6 +130,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void BirthDateIsNotValidErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -147,6 +150,7 @@ namespace EmployeeOnBoardingApi.Tests
         }
 
         [Test]
+        [Category("ValidatorTests")]
         public void StartDateIsNotValidErrorExpected()
         {
             var employee = new EmployeeDto()
@@ -167,6 +171,7 @@ namespace EmployeeOnBoardingApi.Tests
 
 
         [Test]
+        [Category("ValidatorTests")]
         public void StartDateAndBirthDateIsNotValidMoreThen1ErrorExpected()
         {
             var employee = new EmployeeDto()

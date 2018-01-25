@@ -1,10 +1,9 @@
 ﻿using System;
 using EmployeeOnBoarding.Domain;
-using EmployeeOnBoarding.Domain.Employee;
 using EmployeeOnBoarding.Perisistance;
 using NUnit.Framework;
 
-namespace EmployeeOnBoardingApi.Tests
+namespace EmployeeOnBoardingApi.Tests.RepositoryTests
 {
     public class EmployeeRepositoryTests
     {
@@ -15,6 +14,7 @@ namespace EmployeeOnBoardingApi.Tests
 
         [Test]
         [Explicit]
+        [Category("Explicit")]
         public void AddEmployee()
         {
             var employee = new Employee
@@ -32,6 +32,7 @@ namespace EmployeeOnBoardingApi.Tests
 
         [Test]
         [Explicit]
+        [Category("Explicit")]
         public void GetEmployeeById()
         {
             var employee = _employeeRepository.GetById(0);

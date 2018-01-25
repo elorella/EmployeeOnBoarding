@@ -1,5 +1,5 @@
 ﻿using EmployeeOnBoarding.DataTransferObjects;
-using EmployeeOnBoarding.Domain.Employee;
+using EmployeeOnBoarding.Domain;
 
 namespace EmployeeOnBoarding.Converters
 {

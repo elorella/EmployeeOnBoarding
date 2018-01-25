@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmployeeOnBoarding.Domain.Employee
+namespace EmployeeOnBoarding.Domain
 {
     public class Employee : IEntity
     {

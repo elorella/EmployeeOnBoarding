@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using EmployeeOnBoarding.Domain;
+using NUnit.Framework;
 
-namespace EmployeeOnBoarding.Domain.Assignment
+namespace EmployeeOnBoardingApi.Tests.DomainTests
 {
     [TestFixture]
     public class AssignmentTests
@@ -16,6 +17,7 @@ namespace EmployeeOnBoarding.Domain.Assignment
         }
 
         [Test]
+        [Category("DomainTests")]
         public void SetAndGetId()
         {
             _assignment.Id = Id;
@@ -23,6 +25,7 @@ namespace EmployeeOnBoarding.Domain.Assignment
         }
 
         [Test]
+        [Category("DomainTests")]
         public void TestSetAndGetDescription()
         {
             _assignment.Description = Description;
@@ -30,6 +33,7 @@ namespace EmployeeOnBoarding.Domain.Assignment
         }
 
         [Test]
+        [Category("DomainTests")]
         public void TestSetAndGetLevel()
         {
             _assignment.Level = LevelId;
@@ -37,6 +41,7 @@ namespace EmployeeOnBoarding.Domain.Assignment
         }
 
         [Test]
+        [Category("DomainTests")]
         public void TestSetAndGetDurationInSeconds()
         {
             _assignment.DurationInSeconds = DurationInSeconds;
