@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA84BA45-E5B9-443B-832E-A0CA469D31E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmployeeOnBoarding.Service</RootNamespace>
+    <AssemblyName>EmployeeOnBoarding.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmployeeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeOnBoarding.Converters\EmployeeOnBoarding.Converters.csproj">
+      <Project>{73E6166B-6135-41C6-8CBF-1590C5D37671}</Project>
+      <Name>EmployeeOnBoarding.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.DataTransferObjects\EmployeeOnBoarding.DataTransferObjects.csproj">
+      <Project>{97A4F68D-49BE-4A83-9FBB-21804134D845}</Project>
+      <Name>EmployeeOnBoarding.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Domain\EmployeeOnBoarding.Domain.csproj">
+      <Project>{36b06de2-3b92-4cf8-993a-d628da80874f}</Project>
+      <Name>EmployeeOnBoarding.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeOnBoarding.Repositories\EmployeeOnBoarding.Repositories.csproj">
+      <Project>{05657711-3E19-415C-9BDD-87BEB398D413}</Project>
+      <Name>EmployeeOnBoarding.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
