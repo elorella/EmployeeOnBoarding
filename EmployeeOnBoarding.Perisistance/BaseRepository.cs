@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using EmployeeOnBoarding.Domain;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
@@ -22,6 +24,13 @@ namespace EmployeeOnBoarding.Perisistance
             _collectionName = collections[collections.Length - 1];
             ConventionRegistry.Register("EnumStringConvention", pack, t => true);
             _database = MongoTools.GetMongoDatabase(mongoCredentials);
+        }
+
+        public virtual IEnumerable<TEntity> Get()
+        {
+            var mongoDtoCollection = _database.GetCollection<TEntity>(_collectionName);
+            var result = mongoDtoCollection.WithReadPreference(ReadPreference.Nearest);
+            return result.AsQueryable();
         }
 
         public virtual TEntity GetById(int id)

@@ -24,7 +24,10 @@ namespace EmployeeOnBoarding.Service
         {
             var validationResult = _validator.ValidateAddEmployee(employeeDto);
             if (validationResult.Errors.Any())
-                throw new ArgumentException(ExceptionMessagBuilder.Build(validationResult.Errors));
+            {
+                var exceptionMessage = ExceptionMessageBuilder.Build(validationResult.Errors);
+                throw new ArgumentException(exceptionMessage);
+            }
 
             var employee = _employeeConverter.ToDomainObject(employeeDto);
             _employeeRepository.Insert(employee);
@@ -34,10 +37,13 @@ namespace EmployeeOnBoarding.Service
         {
             var employee = _employeeRepository.GetById(id);
             if (employee == null)
-                return null;
+            {
+                throw new ArgumentNullException(nameof(id), "Employee not found.");
+            }
 
             var employeeDto = _employeeConverter.ToDataTransferObject(employee);
             return employeeDto;
         }
+
     }
 }

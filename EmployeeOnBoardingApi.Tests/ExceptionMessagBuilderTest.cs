@@ -13,7 +13,7 @@ namespace EmployeeOnBoardingApi.Tests
         {
             var expected = $"Invalid Name{Environment.NewLine}Invalid Surname";
 
-            string actual = ExceptionMessagBuilder.Build(new List<ValidationFailure>
+            string actual = ExceptionMessageBuilder.Build(new List<ValidationFailure>
             {
                 new ValidationFailure("Name", "Invalid Name"),
                 new ValidationFailure("Surname", "Invalid Surname")
@@ -26,7 +26,7 @@ namespace EmployeeOnBoardingApi.Tests
         public void BuildEmptyExceptionMessage()
         {
             var expected = string.Empty;
-            string actual = ExceptionMessagBuilder.Build(new List<ValidationFailure>());
+            string actual = ExceptionMessageBuilder.Build(new List<ValidationFailure>());
             Assert.AreEqual(expected, actual);
         }
     }

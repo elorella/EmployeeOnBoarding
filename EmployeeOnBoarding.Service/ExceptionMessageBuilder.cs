@@ -4,7 +4,7 @@ using FluentValidation.Results;
 
 namespace EmployeeOnBoarding.Service
 {
-    public static class ExceptionMessagBuilder
+    public static class ExceptionMessageBuilder
     {
         public static string Build(IEnumerable<ValidationFailure> validationFailures)
         {

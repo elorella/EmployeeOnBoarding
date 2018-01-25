@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeService.cs" />
-    <Compile Include="ExceptionMessagBuilder.cs" />
+    <Compile Include="ExceptionMessageBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,8 +8,8 @@ namespace EmployeeOnBoarding.Validator.Validators
     {
         public AddEmployeeValidator()
         {
-            RuleFor(customer => customer.Surname).NotEmpty().WithMessage("Please specify a first name");
-            RuleFor(customer => customer.Name).NotEmpty().WithMessage("Please specify a surname");
+            RuleFor(customer => customer.Name).NotEmpty().WithMessage("Please specify a first name");
+            RuleFor(customer => customer.Surname).NotEmpty().WithMessage("Please specify a surname");
             RuleFor(customer => customer.ContractType).Length(4).WithMessage("Please specify a valid contract type.");
             RuleFor(customer => customer.Id).NotEqual(0).WithMessage("Id is zero.");
             RuleFor(customer => customer.BirthDay).Must(BeAValidDatetime)
@@ -20,7 +20,8 @@ namespace EmployeeOnBoarding.Validator.Validators
 
         private bool BeAValidDatetime(string datetime)
         {
-            return DateTime.TryParse(datetime, out var validDatetime);
+            bool isValid = DateTime.TryParse(datetime, out var validDatetime);
+            return isValid;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace EmployeeOnBoardingApi
         {
             var correlationId = Guid.NewGuid();
 
-            var metadata = new ErrorInfoModel
+            var errorInfoModel = new ErrorInfoModel
             {
                 Message = context.Exception.Message,
                 TimeStamp = DateTime.UtcNow,
@@ -21,10 +21,24 @@ namespace EmployeeOnBoardingApi
                 ErrorId = correlationId,
             };
 
-            //I throw ArgumentException for all the business validation exceptions   
-            HttpResponseMessage httpResponseMessage = context.Request.CreateResponse(
-                context.Exception is ArgumentException ? HttpStatusCode.BadRequest : HttpStatusCode.InternalServerError,
-                metadata);
+            //ArgumentException is thrown for all the business validation exceptions  
+            //ArgumentNullException is thrown when an item is not found
+
+            HttpResponseMessage httpResponseMessage;
+            if (context.Exception is ArgumentException)
+            {
+                httpResponseMessage = context.Request.CreateResponse(HttpStatusCode.BadRequest, errorInfoModel);
+            }
+            else if (context.Exception is ArgumentNullException)
+            {
+                httpResponseMessage = context.Request.CreateResponse(HttpStatusCode.NotFound, errorInfoModel);
+            }
+            else
+            {
+                httpResponseMessage =
+                    context.Request.CreateResponse(HttpStatusCode.InternalServerError, errorInfoModel);
+            }
+
             context.Result = new ResponseMessageResult(httpResponseMessage);
         }
     }
